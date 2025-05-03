@@ -1,0 +1,16 @@
+body{
+    text-align: center;
+    font-family: sans-serif;
+    background-image: url("images/shibafu.png");
+}
+
+.animals img{
+    width: 35%;
+    margin: 30px 30px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.animals img:hover{
+    transform: scale(1.5);
+}
