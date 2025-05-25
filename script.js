@@ -17,3 +17,13 @@ document.getElementById( "cow").addEventListener( "click",()=>{
     const sound = new Audio( "sounds/cow.mp3")
     sound.play();
 });
+
+document.getElementById( "lion").addEventListener( "click",()=>{
+    const sound = new Audio( "sounds/lion.mp3")
+    sound.play();
+});
+
+document.getElementById( "elephant").addEventListener( "click",()=>{
+    const sound = new Audio( "sounds/elephant.mp3")
+    sound.play();
+});
