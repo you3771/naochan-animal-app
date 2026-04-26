@@ -9,9 +9,27 @@ const animals = {
 
 const tapCounts = {};
 
+// iOSで利用可能な女性音声名（言語ごと）
+const femaleVoiceNames = {
+    "ja-JP": ["Kyoko", "O-Ren"],
+    "en-US": ["Samantha", "Karen", "Moira", "Tessa"],
+};
+
 function speak(text, lang) {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = lang;
+    utterance.rate = 0.5;
+
+    const voices = speechSynthesis.getVoices();
+    const preferred = femaleVoiceNames[lang] || [];
+    const langCode = lang.split("-")[0];
+
+    const voice =
+        voices.find(v => v.lang.startsWith(langCode) && preferred.some(n => v.name.includes(n))) ||
+        voices.find(v => v.lang.startsWith(langCode));
+
+    if (voice) utterance.voice = voice;
+
     speechSynthesis.cancel();
     speechSynthesis.speak(utterance);
 }
