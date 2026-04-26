@@ -1,29 +1,14 @@
-document.getElementById( "cat").addEventListener( "click", ()=> {
-    const sound = new Audio( "sounds/cat.mp3")
-    sound.play();
-});
+const animals = ["cat", "dog", "pig", "cow", "lion", "elephant"];
 
-document.getElementById( "dog").addEventListener( "click",()=> {
-    const sound = new Audio( "sounds/dog.mp3")
-    sound.play();
-});
+animals.forEach((animal) => {
+    const card = document.getElementById(animal);
+    card.addEventListener("click", () => {
+        // ズームアニメーション
+        card.classList.add("zoomed");
+        setTimeout(() => card.classList.remove("zoomed"), 400);
 
-document.getElementById( "pig").addEventListener( "click",()=>{
-    const sound = new Audio( "sounds/pig.mp3")
-    sound.play();
-});
-
-document.getElementById( "cow").addEventListener( "click",()=>{
-    const sound = new Audio( "sounds/cow.mp3")
-    sound.play();
-});
-
-document.getElementById( "lion").addEventListener( "click",()=>{
-    const sound = new Audio( "sounds/lion.mp3")
-    sound.play();
-});
-
-document.getElementById( "elephant").addEventListener( "click",()=>{
-    const sound = new Audio( "sounds/elephant.mp3")
-    sound.play();
+        // 鳴き声を再生
+        const sound = new Audio("sounds/" + animal + ".mp3");
+        sound.play();
+    });
 });
